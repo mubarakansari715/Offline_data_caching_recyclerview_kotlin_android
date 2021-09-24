@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Offline Data</string>
+    <string name="app_net">Loading…</string>
+</resources>

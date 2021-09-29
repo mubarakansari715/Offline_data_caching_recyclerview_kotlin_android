@@ -39,12 +39,14 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.apply {
+
             recyclerView.apply {
                 adapter = dataAdapter
                 layoutManager = LinearLayoutManager(this@MainActivity)
             }
-            viewMode.data.observe(this@MainActivity, Observer { result ->
 
+            viewMode.data.observe(this@MainActivity, Observer { result ->
+                recyclerView.startLayoutAnimation() //animation
                 dataAdapter.submitList(result.data)
 
                 progressCircular.isVisible =

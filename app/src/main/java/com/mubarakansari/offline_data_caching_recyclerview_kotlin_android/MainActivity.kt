@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val viewMode: DataViewModel by viewModels()
+    private val viewModel: DataViewModel by viewModels()
     private lateinit var networkConnectivity: NetworkConnectivity
     private val dataAdapter = DataAdapter()
     @SuppressLint("SetTextI18n")
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@MainActivity)
             }
 
-            viewMode.data.observe(this@MainActivity, Observer { result ->
+            viewModel.data.observe(this@MainActivity, Observer { result ->
                 recyclerView.startLayoutAnimation() //animation
                 dataAdapter.submitList(result.data)
 
